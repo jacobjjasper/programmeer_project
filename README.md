@@ -1,10 +1,10 @@
 # Project proposal
 
 
-# Student information
-Name: Jacob Jasper
-Student number: 10650385
-Subject: Programming project
+## Student information
+- Name: Jacob Jasper
+- Student number: 10650385
+- Subject: Programming project
 
 ## Problem statement
 
@@ -30,12 +30,11 @@ to tobacco.
 
 ## Prerequisites
 
-Datasources: https://ourworldindata.org/smoking#smoking-and-cancer
-External components: D3-tip, D3 and Bootstrap.
-Similar: At the website of my datasource there are a lot of visualisations. I think
+- Datasources: https://ourworldindata.org/smoking#smoking-and-cancer
+- External components: D3-tip, D3 and Bootstrap.
+- Similar: At the website of my datasource there are a lot of visualisations. I think
 that I will implement the world graph and scatter the same way. The line graph and
 pie chart will be really basic so that the user will understand it easy.
-Hardest parts: I have so much data, how do I process this in an ordered and
+- Hardest parts: I have so much data, how do I process this in an ordered and
 structured way and link them to each other. Are the datasets exactly the same order
 of countries or do I have to order them by myself. I think that is the hardest part.
-# programmeer_project
