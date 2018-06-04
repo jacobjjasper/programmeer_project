@@ -15,7 +15,8 @@
 
 ## Solution
 
-Let people visualize the horrible effects of smoking so they won't start smoking.
+Let people visualize the horrible effects of smoking so they won't start smoking
+or quit smoking.
 
 ![](doc/sketsch.png)
 
