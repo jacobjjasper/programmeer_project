@@ -19,7 +19,7 @@ Let people visualize the horrible effects of smoking in the world so they won't
 start smoking or quit smoking and show the effects of smoking policies on number
 of smokers in the Netherlands.
 
-![](doc/sketsch2.jpeg)
+![](doc/sketch2.jpeg)
 
 - There is a world map which have a heatmap of a variable (which I have to
   determine. It will be probably do # who smoke daily). There is also a slider
@@ -30,7 +30,7 @@ of smokers in the Netherlands.
   smoker on the x axis and with a button you can change between the # of deaths
   by smoking and the % cancer deaths attributed to tobacco on the y axis.
 - You have a stacked bar chart from the Netherlands of the years 2014-2017 of the
-  # of smokers.
+  number of smokers.
 
 ## Prerequisites
 
