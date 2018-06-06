@@ -6,7 +6,7 @@
 - Subject: Programming project
 
 
-##Data
+## Data
 My data comes from two websites:
 - https://ourworldindata.org/smoking#smoking-and-cancer
 - https://opendata.cbs.nl/statline/#/CBS/nl/dataset/83021NED/table?dl=856C
