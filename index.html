@@ -1,0 +1,50 @@
+<!--
+* This html loads csv files with data about smoking. There will be a world mapp,
+* and scatterplot next to eachother. These two visualizations are linked to a
+* line graph.
+*....
+*
+* Programming project
+*
+* Jacob Jasper (10650385)
+*/
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>programmeer project</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+  <script src="d3-tip.js"></script>
+  <meta charset="utf-8">
+</head>
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#top">Programmeer project</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a href="#top">Home</a></li>
+        <li><a href="#visualisations">Visualisations</a></li>
+        <li><a href="#data">Dataset descriptions</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div id="visualisations" style="position: relative; width: 500px; height: 400px;"></div>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+  <script src="worldmap.js"></script>
+  <script>
+      window.onload = function() {
+        var map = new Datamap({element: document.getElementById('visualisations')});
+      }
+  </script>
+
+</body>
+</html>
