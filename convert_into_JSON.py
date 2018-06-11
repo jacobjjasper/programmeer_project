@@ -56,7 +56,7 @@ with open('JSON_data/share_smokers_everyday.json', 'a') as json_file:
     json_file.write("]")
 
 # convert consumtion cigarets per smoker into JSON
-json_file = open('JSON_data/comsumption_cigarets_smokers.json', 'w')
+json_file = open('JSON_data/consumption_cigarets_smokers.json', 'w')
 json_data = [json.dumps(d) for d in csv.DictReader(open('csv_data/consumption-per-smoker-per-day-(1980-2012).csv', 'r'))]
 
 json_file.write("[")
