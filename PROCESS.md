@@ -28,3 +28,4 @@ mijn kaart goed geladen wordt. (opgelost)
 nu even te laten voor wat het is (want ik kom niet  verder daarmee en ben daar
   de hele dag mee bezig geweest en eigenlijk niet echt begrijp hoe het nou
   precies werkt). Hier moet ik morgen met een begeleider even mee gaan zitten.
+- Proposal en design bijgewerkt.
