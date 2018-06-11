@@ -19,7 +19,7 @@ Let people visualize the horrible effects of smoking in the world so they won't
 start smoking or quit smoking and show the effects of smoking policies on number
 of smokers in the Netherlands.
 
-![](doc/proposal.jpeg)
+![](doc/proposal1.jpeg)
 
 - There is a world map which have a heatmap of a variable (which I have to
   determine. It will be probably do # who smoke daily). There is also a slider
