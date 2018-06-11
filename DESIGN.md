@@ -26,7 +26,7 @@ This wil be a world heatmap. On this map the user can choose the country to
 compare in the line graph with The Netherlands. I have to implement a D3 world map,
 which is interactive (country brighten up if hoovering over country, implemented
 with a D3-tooltip probably). Also have to Implement a color range for filling
-up the countries, based on the daily sigarets consumed per smoker per year. This
+up the countries, based on the daily cigarets consumed per smoker per year. This
 property has to be linked to a HTML slider, so the user can control the year which
 is displayed in the heatmap. I have to make an update function (update_heatmap)
 to update the colors for the selected year. Also before you do this, I have to
@@ -37,6 +37,21 @@ make a function which makes the world map (make_worldmap).
 - D3 datamaps
 - D3 tooltip
 - HTML slider
+
+
+### Scatterplot
+#### Description
+This will be a scatterplot which links the daily number of cigarets smoked to a
+chosen variable (HTML button switching the variable by user's choice: number of
+deaths or % cancer deaths attributed to tobacco). The datapoints will consist out
+of countries in a certain year. I need to make a make_scatter function with a
+update_scatter function interacting with the user's choice. User can also switch
+between years with a html dropdown menu.
+
+#### Technical components
+- D3 scatterplot
+- HTML button
+- D3 tooltip
 
 
 ### Line graph country
@@ -54,20 +69,6 @@ which links them to the scatterplot.
 
 #### Technical components
 - D3 line graph
-- D3 tooltip
-
-
-### Scatterplot
-#### Description
-This will be a scatterplot which links the daily number of sigarets smoked to a
-chosen variable (HTML button switching the variable by user's choice: number of
-deaths or % cancer deaths attributed to tobacco). The datapoints will consist out
-of countries in a certain year. I need to make a make_scatter function with a
-update_scatter function interacting with the user's choice.
-
-#### Technical components
-- D3 scatterplot
-- HTML button
 - D3 tooltip
 
 

@@ -21,16 +21,18 @@ of smokers in the Netherlands.
 
 ![](doc/proposal1.jpeg)
 
-- There is a world map which have a heatmap of a variable (which I have to
-  determine. It will be probably do # who smoke daily). There is also a slider
-  to slide between years, so that the heatmap will change over time.
-- If you click a country you will get a line graph of that particular country and
-  also a line of the Netherlands for comparison from 1980-2012.
-- Click a year and you get a scatterplot of the daily # of sigarets smoked per
+- There is a world map which have a heatmap of the variable of de number of
+  cigarets consumed per smoker per day. There is also a slider
+  to slide between years, so that the heatmap will change over time (1990-2012).
+- The scatter will be next to the heatmap of the daily # of sigarets smoked per
   smoker on the x axis and with a button you can change between the # of deaths
-  by smoking and the % cancer deaths attributed to tobacco on the y axis.
+  by smoking and the % cancer deaths attributed to tobacco on the y axis. The years
+  you can choose in a drop down menu (1990, 1995, 2000, 2005, 2006, 2010, 2016).
+- If you click a country of the world heatmap or on the scatterplot
+  you will get a line graph of that particular country and also a line of the
+  Netherlands for comparison from 1980-2012.
 - You have a stacked bar chart from the Netherlands of the years 2014-2017 of the
-  number of smokers.
+  number of smokers. The stacks are age groups.
 
 ## Prerequisites
 
