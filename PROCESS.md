@@ -29,3 +29,10 @@ nu even te laten voor wat het is (want ik kom niet  verder daarmee en ben daar
   de hele dag mee bezig geweest en eigenlijk niet echt begrijp hoe het nou
   precies werkt). Hier moet ik morgen met een begeleider even mee gaan zitten.
 - Proposal en design bijgewerkt.
+
+## 12 juni
+- Vandaag heel veel problemen gehad met het goed structureren van mijn data. Het
+is nu bijna gelukt, enige wat ik nog moet doen is dat ik het zo structureer dat
+het makkelijk per jaar te selecteren is voor het dropdown menu.
+- Nog niet toegekomen aan scatter, dus kom een beetje in tijdnood als ik al mijn
+visualisaties af wil hebben, zoals ik wilde.

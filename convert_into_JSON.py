@@ -1,3 +1,13 @@
+# /**
+# * This script loads csv files en converts them into JSON
+# *
+# * Programming project
+# *
+# * Jacob Jasper (10650385)
+# */
+
+
+
 import csv
 import json
 
@@ -66,9 +76,9 @@ for d in json_data:
 
 json_file.close()
 
-with open('JSON_data/comsumption_cigarets_smokers.json', 'rb+') as json_file:
+with open('JSON_data/consumption_cigarets_smokers.json', 'rb+') as json_file:
     json_file.seek(-2, 2)
     json_file.truncate()
 
-with open('JSON_data/comsumption_cigarets_smokers.json', 'a') as json_file:
+with open('JSON_data/consumption_cigarets_smokers.json', 'a') as json_file:
     json_file.write("]")
