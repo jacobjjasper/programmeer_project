@@ -1,10 +1,9 @@
-# /**
-# * This script processes data to use later on for a scatterplot.
-# *
-# * Programming project
-# *
-# * Jacob Jasper (10650385)
-# */
+#  This script processes data to use later on for a scatterplot.
+#
+#  Programming project
+#
+#  Jacob Jasper (10650385)
+#
 
 
 
@@ -65,7 +64,7 @@ with open('JSON_data/deaths_smoking.json', 'r') as deaths:
         for year in data_years:
             for line in year:
                 if obj["Year"] == line["Year"] and obj["Entity"] == line["Entity"]:
-                    line["Deaths"] = obj["Tobacco smoking"]
+                    line["Deaths"] = float(obj["Tobacco smoking"])
 
 
 with open('JSON_data/share_cancer_deaths_tobacco.json', 'r') as cancer:
@@ -75,7 +74,8 @@ with open('JSON_data/share_cancer_deaths_tobacco.json', 'r') as cancer:
         for year in data_years:
             for line in year:
                 if obj["Year"] == line["Year"] and obj["Entity"] == line["Entity"]:
-                    line["Cancer"] = obj["Age-standardized share of cancer deaths attributed to tobacco (%)"]
+                    line["Cancer"] = float(obj["Cancer"])
+
 
 json_file = open('JSON_data/scatter_data.json', 'w')
 json_data = json.dumps(data_years)

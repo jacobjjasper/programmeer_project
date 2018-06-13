@@ -2,7 +2,7 @@
 * This html loads csv files with data about smoking. There will be a world mapp,
 * and scatterplot next to eachother. These two visualizations are linked to a
 * line graph.
-*....
+*
 *
 * Programming project
 *
@@ -20,10 +20,11 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="d3_version4.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+  <script src="d3_version4.js"></script>
   <script src="d3-tip.js"></script>
   <script src="make_scatter.js"></script>
+  <link rel="stylesheet" type="text/css" href="scatter.css">
   <meta charset="utf-8">
 </head>
 <body>
@@ -39,14 +40,50 @@
       </ul>
     </div>
   </nav>
-  <div id="visualisations" style="position: relative; width: 500px; height: 400px;"></div>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
-  <script src="worldmap.js"></script>
-  <script>
-      window.onload = function() {
-        var map = new Datamap({element: document.getElementById('visualisations')});
-      }
-  </script>
+  <div class="jumbotron text-center" id="top">
+  <h1>Programming project</h1>
+    <p style="font-style:italic; font-size: 30px">By Jacob Jasper, 10650385</p>
+    <p style="font-style:italic; font-size: 20px"> For the data sources of ourworldindata.org click
+    <a href="https://ourworldindata.org/smoking#deaths-from-smoking"> here</a>
+    and for the data from Statline click
+    <a href="https://opendata.cbs.nl/statline/#/CBS/nl/dataset/83021NED/table?dl=856C"> here</a></h1>
+    </p>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6" id="map">
+        <h3 class="bullets">World map</h3>
+        <!-- <div class="slidecontainer">
+          <input type="range" min="1980" max="2012" value="50" class="slider" id="myRange"></div>
+          <script>
+            var slider = document.getElementById("myRange");
+            var output = document.getElementById("demo");
+              output.innerHTML = slider.value;
 
+            slider.oninput = function() {
+              output.innerHTML = this.value;
+            }
+          </script> -->
+      </div>
+      <div class="col-sm-6" id="scatter">
+        <h3 class="bullets" style="text-align: center">Scatter</h3>
+          <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle btn lg"
+            type="button" id="dropdownmenu" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="true"> Year
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a id="1990">1990</li>
+            <li><a id="1995">1995</li>
+            <li><a id="2000">2000</li>
+            <li><a id="2005">2005</li>
+            <li><a id="2006">2006</li>
+            <li><a id="2010">2010</li>
+          </ul>
+          </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

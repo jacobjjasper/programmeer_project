@@ -36,3 +36,11 @@ is nu bijna gelukt, enige wat ik nog moet doen is dat ik het zo structureer dat
 het makkelijk per jaar te selecteren is voor het dropdown menu.
 - Nog niet toegekomen aan scatter, dus kom een beetje in tijdnood als ik al mijn
 visualisaties af wil hebben, zoals ik wilde.
+
+## 13 juni
+- Ben vandaag de hele dag bezig geweest met mijn scatterplot. Ging veel minder
+goed dan verwacht en hij is dan ook nog niet af. Heb ook nog kleine aanpassingen
+gemaakt bij mijn datanamen zodat die wat makkelijker zijn. Loop nu vast bij mijn
+scatter, omdat die sommige waardes NaN geeft. Zelfs als ik de functie "Number"
+ervoor zet ziet die het als indefined. Heel erg vervelend, want wil vrijdag mijn
+mv... wel af hebben.

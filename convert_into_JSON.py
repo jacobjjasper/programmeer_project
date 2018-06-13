@@ -1,10 +1,10 @@
-# /**
-# * This script loads csv files en converts them into JSON
-# *
-# * Programming project
-# *
-# * Jacob Jasper (10650385)
-# */
+#
+# This script loads csv files en converts them into JSON
+#
+# Programming project
+#
+# Jacob Jasper (10650385)
+# 
 
 
 
