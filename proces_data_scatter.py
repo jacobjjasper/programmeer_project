@@ -57,27 +57,25 @@ data_years.append(data2005)
 data_years.append(data2006)
 data_years.append(data2010)
 
+scatter_data = []
 with open('JSON_data/deaths_smoking.json', 'r') as deaths:
-    my_dict = json.load(deaths)
+    with open('JSON_data/share_cancer_deaths_tobacco.json', 'r') as cancer:
+        my_dict1 = json.load(deaths)
+        my_dict2 = json.load(cancer)
 
-    for obj in my_dict:
-        for year in data_years:
-            for line in year:
-                if obj["Year"] == line["Year"] and obj["Entity"] == line["Entity"]:
-                    line["Deaths"] = float(obj["Tobacco smoking"])
+        for obj1 in my_dict1:
+            for obj2 in my_dict2:
+                for year in data_years:
+                    for line in year:
 
-
-with open('JSON_data/share_cancer_deaths_tobacco.json', 'r') as cancer:
-    my_dict = json.load(cancer)
-
-    for obj in my_dict:
-        for year in data_years:
-            for line in year:
-                if obj["Year"] == line["Year"] and obj["Entity"] == line["Entity"]:
-                    line["Cancer"] = float(obj["Cancer"])
-
+                        if obj1["Year"] == obj2["Year"] == line["Year"] and
+                        obj1["Entity"] == obj2["Entity"] == line["Entity"]:
+                            line["Deaths"] = obj1["Tobacco smoking"]
+                            line["Cancer"] = obj2["Cancer"]
+                            print(scatter_data)
+                            scatter_data.append(line)
 
 json_file = open('JSON_data/scatter_data.json', 'w')
-json_data = json.dumps(data_years)
+json_data = json.dumps(scatter_data)
 json_file.write(json_data)
 json_file.close()

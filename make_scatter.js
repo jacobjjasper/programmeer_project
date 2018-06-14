@@ -8,21 +8,20 @@
  * Jacob Jasper (10650385)
 **/
 
-var allData;
+var allData = [];
 
-// d3.json("JSON_data/scatter_data.json", function(data){
-// allData = data;
-// });
 
 // function makeScatter(valueButton){
 d3.json("JSON_data/scatter_data.json", function(data){
+
   valueButton = 0;
   allData = data;
+
 
   //width and height
   var w = 400;
   var h = 300;
-  var margin = { top: 100, right: 150, bottom: 100, left: 100};
+  var margin = { top: 50, right: 150, bottom: 50, left: 100};
 
   //create SVG element
   var svg = d3.select("#scatter")
@@ -41,22 +40,23 @@ d3.json("JSON_data/scatter_data.json", function(data){
                 console.log(d);
                 return  "<strong>Country:</strong> <strong>" + d["Entity"]
             + "</strong>" + "<br>" + "Daily consumption cigarets per smoker: " + d["Cigarets"] + "<br>" +
-        "Deaths smoking: " + d["Deaths"] + "<br>" + "Share of cancer deaths attributed to tobacco (%):"
-        + d["Cancer"]})
+            "Deaths smoking: " + d["Deaths"] + "<br>" + "Share of cancer deaths attributed to tobacco (%):"
+            + d["Cancer"]})
               .style("background-color", "white");
 
 var consumption = [];
 var deaths = [];
+var cancer = [];
 var minCancer = 0;
 var maxCancer = 100;
-
-  for (let i =0; i < 188; i ++) {
+console.log(allData[valueButton].length);
+  for (let i =0; i < allData[valueButton].length; i ++) {
     consumption.push(Number(allData[valueButton][i]["Cigarets"]));
     deaths.push(Number(allData[valueButton][i]["Deaths"]));
+    cancer.push(Number(allData[valueButton][i]["Cancer"]));
+
   };
-  console.log(typeof(deaths));
-  console.log(Math.min(...deaths));
-  console.log(Math.max(...consumption));
+
 
   //call tip box
   svg.call(tool_tip);
@@ -108,10 +108,10 @@ var maxCancer = 100;
     svg.append("text")
       .attr("class", "label")
       .attr("transform", "rotate(-90)")
-      .attr("y", -20)
+      .attr("y", -70)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text("Number of deaths caused by tobacco");
+      .text("Number of deaths from tobacco smoking");
 
 
 
@@ -130,13 +130,11 @@ var maxCancer = 100;
         return x_scale(d["Cigarets"]);
       })
       .attr("cy", function(d) {
-        console.log(typeof(Number(d["Deats"])));
-        return y_scale(Number(d["Deaths"]));
+          return y_scale(d["Deaths"]);
       })
-      .attr("r", function(d) {
-        return r_scale(Number(d["Cancer"]));
+      .attr("r", function(d){
+          return r_scale(d["Cancer"])
       })
-
       //defining the style of each datapoint
       .style("fill", "red")
       .style("stroke-width", 1)
@@ -147,12 +145,12 @@ var maxCancer = 100;
     //append title to scatterplot
     svg.append("text")
       .attr("class", "scatter_title")
-      .attr("x", -400)
+      .attr("x", -200)
       .attr("y", -50)
       .text("Scatterplot of the number of cigarets consumed per smoker, number \
        of deaths from tobacco/ share of cancer deaths attributed to tobacco of \
        the world")
-      .style("text-anchor", "start")
+      .style("text-anchor", "end")
       .style("text-decoration", "underline")
       .style("font-weight", "bold");
 });

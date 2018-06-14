@@ -44,3 +44,13 @@ gemaakt bij mijn datanamen zodat die wat makkelijker zijn. Loop nu vast bij mijn
 scatter, omdat die sommige waardes NaN geeft. Zelfs als ik de functie "Number"
 ervoor zet ziet die het als indefined. Heel erg vervelend, want wil vrijdag mijn
 mv... wel af hebben.
+
+## 14 juni
+- Heb mijn proces_data_scatter omgeschreven, maar als nog niet voor elkaar
+gekregen om de niet overeenkomende landen met python eruit te halen. Heb nu de
+drie landen die niet overeenkwamen met de hand verwijderd. Nu doet mijn scatter
+het wel goed, dus daar ben ik blij mee. Ga beginnen met mijn Linegraph.
+- Heb gezocht naar voorbeelden, kwam er niet helemaal uit (elk voorbeeld
+gebruikt parseTime, terwijl ik dat niet nodig heb als het goed is met mijn
+jaren). Morgen verder met linegraph en hoop dat ik die af krijg, zodat ik in
+het weekend mijn map kan maken.
