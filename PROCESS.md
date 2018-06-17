@@ -54,3 +54,16 @@ het wel goed, dus daar ben ik blij mee. Ga beginnen met mijn Linegraph.
 gebruikt parseTime, terwijl ik dat niet nodig heb als het goed is met mijn
 jaren). Morgen verder met linegraph en hoop dat ik die af krijg, zodat ik in
 het weekend mijn map kan maken.
+
+## 15 juni
+- Na de presentaties ben ik bezig geweest met het verbeteren van mijn linegraph.
+- Hierna ben ik op zoek gegaan naar mijn datamap. Veel gevonden die ik niet
+aan het werk kreeg en niet zo goed begreep. Nu ervoor gekozen om toch datamaps
+te doen. Moet alleen kijken hoe ik d3 v3 en d3 v4 combineer in verschillende
+files.
+
+## 16 juni
+- net mijn d3 worldmap ingeladen, dit lukt. Heb hem echter direct in de html
+gezet, dus moet nu gaan kijken hoe dit in js zet.
+- In js gezet, nu gaan kijken hoe ik met een jaar de kleur kan veranderen. Zodra
+ik dit weet kan ik de slider implementeren en proberen te updaten.

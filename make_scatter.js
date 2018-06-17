@@ -30,7 +30,8 @@ d3.json("JSON_data/scatter_data.json", function(data){
             .attr("width", (w + margin.left + margin.right))
             .attr("height", (h + margin.top + margin.bottom))
             .append("g")
-            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+            .attr("transform", "translate(" + margin.left + "," + margin.top +
+            ")");
 
   // creating tip box to show data
   var tool_tip = d3.tip()
@@ -64,9 +65,10 @@ console.log(allData[valueButton].length);
   //creating scale for 2015
   var x_scale = d3.scaleLinear()
                   .domain([Math.min(...consumption), Math.max(...consumption)])
-                  .range([0, w]);
+                  .range([0, w])
+                  .nice();
 
-  var y_scale = d3.scaleLinear()
+  var y_scale = d3.scaleLog()
                   .domain([Math.min(...deaths), Math.max(...deaths)])
                   .range([h, 0]);
 
@@ -132,15 +134,21 @@ console.log(allData[valueButton].length);
       .attr("cy", function(d) {
           return y_scale(d["Deaths"]);
       })
-      .attr("r", function(d){
-          return r_scale(d["Cancer"])
-      })
+      .attr("r", 3)
+      // function(d){
+      //     return r_scale(d["Cancer"])
+      // })
       //defining the style of each datapoint
       .style("fill", "red")
       .style("stroke-width", 1)
       .style("stroke", "black")
       .on("mouseover", tool_tip.show)
       .on("mouseout", tool_tip.hide)
+      // .on("click", function(d){
+      //   d3.selectAll(".line_click")
+      //     .remove();
+      //     return update_line(d["Entity"]);
+      // });
 
     //append title to scatterplot
     svg.append("text")
