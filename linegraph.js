@@ -27,7 +27,6 @@ var svg;
 
   for (let i =0; i < all_data.length; i ++) {
     if (data[i]["Entity"] == "Netherlands"){
-      console.log(data[i]["Entity"]);
       dutch_data.push(data[i]);
     };
     share.push(data[i]["Share smokers"]);
@@ -137,7 +136,7 @@ var svg;
     svg.append("path")
         .attr("class", "line")
         .attr("d", line_function(dutch_data))
-        .attr("stroke", "black")
+        .attr("stroke", "green")
         .attr("stroke-width", 2)
         .attr("fill", "white");
 
@@ -199,12 +198,11 @@ function update_line(input){
       return x_scale(d["Year"]);
     })
     .attr("cy", function(d) {
-      console.log(y_scale(d["Share smokers"]))
         return y_scale(d["Share smokers"]);
     })
     .attr("r", 3)
     //defining the style of each datapoint
-    .style("fill", "red")
+    .style("fill", "black")
     .on("mouseover", tool_tip.show)
     .on("mouseout", tool_tip.hide)
 };
