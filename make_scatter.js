@@ -12,8 +12,9 @@ var allData = [];
 
 
 // function makeScatter(valueButton){
-d3.json("JSON_data/scatter_data.json", function(data){
+d3v4.json("JSON_data/scatter_data.json", function(data){
 
+  decimal = d3.format(",.1f");
   valueButton = 0;
   allData = data;
 
@@ -24,7 +25,7 @@ d3.json("JSON_data/scatter_data.json", function(data){
   var margin = { top: 50, right: 150, bottom: 50, left: 100};
 
   //create SVG element
-  var svg = d3.select("#scatter")
+  var svg = d3v4.select("#scatter")
             .append("svg")
             .attr("class", "scattersvg")
             .attr("width", (w + margin.left + margin.right))
@@ -34,15 +35,16 @@ d3.json("JSON_data/scatter_data.json", function(data){
             ")");
 
   // creating tip box to show data
-  var tool_tip = d3.tip()
-              .attr('class', 'd3-tip')
+  var tool_tip = d3v4.tip()
+              .attr('class', 'd3v4-tip')
               .offset([-20, 0])
               .html(function(d) {
                 console.log(d);
                 return  "<strong>Country:</strong> <strong>" + d["Entity"]
-            + "</strong>" + "<br>" + "Daily consumption cigarets per smoker: " + d["Cigarets"] + "<br>" +
-            "Deaths smoking: " + d["Deaths"] + "<br>" + "Share of cancer deaths attributed to tobacco (%):"
-            + d["Cancer"]})
+            + "</strong>" + "<br>" + "Daily consumption cigarets per smoker: "
+            + decimal(d["Cigarets"]) + "<br>" + "Deaths smoking: " +
+            decimal(d["Deaths"]) + "<br>" + "Share of cancer deaths attributed to tobacco (%):"
+            + decimal(d["Cancer"])})
               .style("background-color", "white");
 
 var consumption = [];
@@ -50,7 +52,7 @@ var deaths = [];
 var cancer = [];
 var minCancer = 0;
 var maxCancer = 100;
-console.log(allData[valueButton].length);
+
   for (let i =0; i < allData[valueButton].length; i ++) {
     consumption.push(Number(allData[valueButton][i]["Cigarets"]));
     deaths.push(Number(allData[valueButton][i]["Deaths"]));
@@ -63,21 +65,21 @@ console.log(allData[valueButton].length);
   svg.call(tool_tip);
 
   //creating scale for 2015
-  var x_scale = d3.scaleLinear()
+  var x_scale = d3v4.scaleLinear()
                   .domain([Math.min(...consumption), Math.max(...consumption)])
                   .range([0, w])
                   .nice();
 
-  var y_scale = d3.scaleLog()
+  var y_scale = d3v4.scaleLog()
                   .domain([Math.min(...deaths), Math.max(...deaths)])
                   .range([h, 0]);
 
-  var r_scale = d3.scaleLinear()
+  var r_scale = d3v4.scaleLinear()
                   .domain([minCancer, maxCancer])
                   .range([4, 20]);
 
   //creating variable for x axis
-  var x_axis = d3.axisBottom()
+  var x_axis = d3v4.axisBottom()
                 .scale(x_scale);
 
 
@@ -97,7 +99,7 @@ console.log(allData[valueButton].length);
       .text("Number of cigarets consumed per smoker");
 
   //creating variable for y axis
-  var y_axis = d3.axisLeft()
+  var y_axis = d3v4.axisLeft()
                 .scale(y_scale);
 
 
@@ -144,11 +146,14 @@ console.log(allData[valueButton].length);
       .style("stroke", "black")
       .on("mouseover", tool_tip.show)
       .on("mouseout", tool_tip.hide)
-      // .on("click", function(d){
-      //   d3.selectAll(".line_click")
-      //     .remove();
-      //     return update_line(d["Entity"]);
-      // });
+      .on("click", function(d){
+        d3v4.selectAll(".line_click")
+          .remove();
+        d3v4.selectAll(".dot_click")
+            .remove();
+
+        return update_line(d["Entity"]);
+      });
 
     //append title to scatterplot
     svg.append("text")

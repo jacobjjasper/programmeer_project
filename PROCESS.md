@@ -1,3 +1,6 @@
+# Process report Jacob Jasper, Programmeer project, 10650385
+
+
 # Week 1
 
 ## 7 juni
@@ -67,3 +70,16 @@ files.
 gezet, dus moet nu gaan kijken hoe dit in js zet.
 - In js gezet, nu gaan kijken hoe ik met een jaar de kleur kan veranderen. Zodra
 ik dit weet kan ik de slider implementeren en proberen te updaten.
+
+# week 3
+
+## 18 juni
+- Kaart ingekleurd gekregen met laatste jaar. kleurenpalette werkt. Nu uitzoeken
+hoe ik de jaren apart krijg en verbind aan een slider. Moet er ook rekening mee
+houden als er op een land wordt geklikt in de map je ws een land code krijgt
+ipv land naam en misshcien dus een andere update functie moet schrijven voor
+de map dan voor de scatter.
+- Scatter gelinkt aan linegraph. Update nu. nu uitzoeken hoe ik scatter laat
+update aan de and van jaren button en daarna kijken hoe ik de data krijg
+aangepast als ik van variabele op de y as wil wisselen.
+-
