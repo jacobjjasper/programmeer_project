@@ -82,4 +82,15 @@ functie.
 - Scatter gelinkt aan linegraph. Update nu. nu uitzoeken hoe ik scatter laat
 updaten aan de and van jaren button en daarna kijken hoe ik de data krijg
 aangepast als ik van variabele op de y as wil wisselen.
--
+
+## 19 juni
+- update_scatter maken voor jaren.
+- Lukt niet echt goed, heb nu voor elkaar gekregen om dropdown menu te laten
+werken samen met nigel, deze deed het eerst niet. Nu dat werkt en de juiste data
+wordt geselecteerd moet ik de datapunten updaten. Dit gebeurt echter nog niet en
+snap niet helemaal waarom.
+- Heb mijn scatter_update aan het werk gekregen met hulp van tim, code klopte
+maar vergeten een variabele te hernoemen. Het is echter nu zo dat ik een error
+krijg (Cannot read property 'createSVGPoint' of undefined) waarvan ik niet
+precies weet waar die vandaan komt,het is waarschijnlijk iets met de benamingen
+van mijn svg's en tooltips, want hiervoor deed die het niet.

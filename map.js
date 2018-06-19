@@ -1,5 +1,13 @@
 d3.json("JSON_data/share_smokers_everyday.json", function(data){
-
+  // var year_i;
+  //
+  // for (let i =1980; i < 2011; i ++) {
+  //   console.log(year_i);
+  //   for (let i =0; j < data.length; i ++) {
+  //     if (data[j]["Year"] = i)
+  //
+  //   };
+  // };
   decimal = d3.format(",.1f");
 
   var dataset = {};
