@@ -9,7 +9,8 @@
 **/
 
 var all_data_scatter = [];
-var tool_tip_scatter;
+// var dot;
+var tool_tip;
 var svg_scatter;
 var x_scale_scatter;
 var y_scale_scatter;
@@ -17,19 +18,20 @@ var y_scale_scatter;
 // function makeScatter(valueButton){
 d3v4.json("JSON_data/scatter_data.json", function(data){
 
-  decimal = d3v4.format(",.1f");
+  decimal = d3.format(",.1f");
   value_button = 0;
   all_data_scatter = data;
+
 
   //width and height
   var w = 400;
   var h = 300;
   var margin = { top: 50, right: 150, bottom: 50, left: 100};
 
-  //create svg_scatter element
+  //create SVG element
   svg_scatter = d3v4.select("#scatter")
-            .append("svg_scatter")
-            .attr("class", "scattersvg_scatter")
+            .append("svg")
+            .attr("class", "svg")
             .attr("width", (w + margin.left + margin.right))
             .attr("height", (h + margin.top + margin.bottom))
             .append("g")
@@ -37,7 +39,7 @@ d3v4.json("JSON_data/scatter_data.json", function(data){
             ")");
 
   // creating tip box to show data
-  tool_tip_scatter = d3v4.tip()
+  tool_tip = d3v4.tip()
               .attr('class', 'd3v4-tip')
               .offset([-20, 0])
               .html(function(d) {
@@ -48,9 +50,6 @@ d3v4.json("JSON_data/scatter_data.json", function(data){
             decimal(d["Deaths"]) + "<br>" + "Share of cancer deaths attributed \
             to tobacco (%):"  + decimal(d["Cancer"])})
               .style("background-color", "white");
-
-  //call tip box
-  svg_scatter.call(tool_tip_scatter);
 
   var consumption = [];
   var deaths = [];
@@ -72,6 +71,9 @@ d3v4.json("JSON_data/scatter_data.json", function(data){
 
   };
   var max_cancer = Math.max(...cancer);
+
+  //call tip box
+  svg_scatter.call(tool_tip);
 
   //creating scale for 2015
   x_scale_scatter = d3v4.scaleLinear()
@@ -149,8 +151,8 @@ d3v4.json("JSON_data/scatter_data.json", function(data){
       .style("fill", "red")
       .style("stroke-width", 1)
       .style("stroke", "black")
-      .on("mouseover", tool_tip_scatter.show)
-      .on("mouseout", tool_tip_scatter.hide)
+      .on("mouseover", tool_tip.show)
+      .on("mouseout", tool_tip.hide)
       .on("click", function(d){
         d3v4.selectAll(".line_click")
           .remove();
@@ -175,37 +177,71 @@ d3v4.json("JSON_data/scatter_data.json", function(data){
 
 function update_scatter(value_button){
 
-  // d3v4.selectAll(".dot_scatter").remove();
+  d3v4.selectAll(".dot").remove();
   console.log('UPDATE SCATTER:', value_button);
 
-  var dots = svg_scatter.selectAll(".dot_scatter")
-        .data(all_data_scatter[value_button])
+  //make a circle for each data point
+  var dot =  svg_scatter.selectAll("circle")
+               .data(all_data_scatter[value_button])
+               .enter();
+
+    //make scatterplot datapoints
+     dot.append("circle")
+     .attr("class", "dot_scatter")
 
 
-
-        dots
-        .transition()
-        .duration(1000)
-        .attr("cx", function(d, i) {
-          return x_scale_scatter(d["Cigarets"]);
-        })
-        .attr("cy", function(d) {
-          return y_scale_scatter(d["Deaths"])
-        })
-        .attr("r", 3)
-        .style("fill", "red")
-        .style("stroke-width", 1)
-        .style("stroke", "black")
-
-        dots
-        .on("mouseover", tool_tip_scatter.show)
-        .on("mouseout", tool_tip_scatter.hide)
-        .on("click", function(d){
-          d3v4.selectAll(".line_click")
+     //specifying the circle attributes of cx, cy, r
+     .attr("cx", function(d) {
+        return x_scale_scatter(d["Cigarets"]);
+      })
+      .attr("cy", function(d) {
+          return y_scale_scatter(d["Deaths"]);
+      })
+      .attr("r", 3)
+      // function(d){
+      //     return r_scale(d["Cancer"])
+      // })
+      //defining the style of each datapoint
+      .style("fill", "red")
+      .style("stroke-width", 1)
+      .style("stroke", "black")
+      .on("mouseover", tool_tip.show)
+      .on("mouseout", tool_tip.hide)
+      .on("click", function(d){
+        d3v4.selectAll(".line_click")
+          .remove();
+        d3v4.selectAll(".dot_click")
             .remove();
-          d3v4.selectAll(".dot_click")
-              .remove();
 
-          return update_line(d["Entity"]);
-        });
+        return update_line(d["Entity"]);
+      });
+  // //make a circle for each data point
+  // dot =  svg.selectAll("circle")
+  //              .data(all_data[value_button])
+  //              .enter();
+  //
+  // svg.selectAll(".dot")
+  //       .data(all_data[value_button])
+  //       .transition()
+  //       .duration(1000)
+  //       .attr("cx", function(d) {
+  //         return x_scale(d["Cigarets"]);
+  //       })
+  //       .attr("cy", function(d) {
+  //         return y_scale(d["Deaths"])
+  //       })
+  //       .attr("r", 3)
+  //       .style("fill", "red")
+  //       .style("stroke-width", 1)
+  //       .style("stroke", "black")
+  //       .on("mouseover", tool_tip.show)
+  //       .on("mouseout", tool_tip.hide)
+  //       .on("click", function(d){
+  //         d3v4.selectAll(".line_click")
+  //           .remove();
+  //         d3v4.selectAll(".dot_click")
+  //             .remove();
+  //
+  //         return update_line(d["Entity"]);
+  //       });
 };
