@@ -15,7 +15,12 @@ function update_scatter(value_button){
           return x_scale_scatter(d["Cigarets"]);
         })
         .attr("cy", function(d) {
-          return y_scale_scatter(d["Deaths"])
+          if (current_variable == 0) {
+            return y_scale_scatter(d["Deaths"])
+          }
+            else if (current_variable == 1) {
+              return y_scale_scatter(d["Cancer"])
+            }
         })
         .attr("r", 3)
         .style("fill", "red")

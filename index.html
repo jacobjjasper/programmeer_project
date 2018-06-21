@@ -21,17 +21,18 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
-  <script src="d3.js"></script>
-  <script src="topojson.js"></script>
-  <script src="worldmap.js"></script>
-  <script src="map.js"></script>
-  <script src="d3_version4.js"></script>
-  <script src="d3-tip.js"></script>
-  <script src-"index.js"></script>
-  <script src="make_scatter.js"></script>
-  <script src="update_scatter.js"></script>
-  <script src="linegraph.js"></script>
-  <link rel="stylesheet" type="text/css" href="scatter.css">
+  <script src="libraries/d3.js"></script>
+  <script src="libraries/topojson.js"></script>
+  <script src="libraries/worldmap.js"></script>
+  <script src="code/map.js"></script>
+  <script src="libraries/d3_version4.js"></script>
+  <script src="libraries/d3-tip.js"></script>
+  <script src="code/make_scatter.js"></script>
+  <script src="code/update_scatter.js"></script>
+  <script src="code/update_y_scatter.js"></script>
+  <script src="code/linegraph.js"></script>
+  <script src="code/update_line.js"></script>
+  <link rel="stylesheet" type="text/css" href="style/scatter.css">
   <meta charset="utf-8">
 </head>
 <body>
@@ -66,17 +67,9 @@
            <!-- <div class="rangeslider-wrap">
             <input type="range" min="150" max="210" step="0.1" labels="150, 160, 170, 180, 190, 200, 210">
           </div> -->
-          <input type="range" min="1980" max="2012" step="1" labels= "1980, 1985, 1990, 1995, 2000, 2005, 2010" value="1980" class="slider" id="myRange"></div>
-          <!-- <script>
-
-              var slider = document.getElementById("myRange");
-              var output = document.getElementById("demo");
-              output.innerHTML = slider.value;
-
-              slider.oninput = function() {
-              output.innerHTML = this.value;
-              }
-          </script> -->
+          <input type="range" min="1990" max="2010" step="1" value="1990" onchange="map_data(this.value)" class="slider" id="slider_value"></div>
+          <br></br>
+          Year: <span id="slider_status">1990</span>
       </div>
       <div class="col-sm-6" id="scatter">
         <h3 class="bullets" style="text-align: left">Scatterplot</h3>
@@ -94,6 +87,17 @@
             <li><a id="2010" onclick="update_scatter(5);">2010</a></li>
           </ul>
           </div>
+          <div class="dropdown" style="float: right;">
+            <button class="btn btn-primary dropdown-toggle btn lg"
+            type="button" id="dropdownmenu" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="true"> Y-axis
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a id="deaths_button" onclick="update_y_scatter(0);">Number of deaths of tobacco smoking</a></li>
+            <li><a id="cancer_button" onclick="update_y_scatter(1);">Share of cancer deaths attributed to tobacco</a></li>
+          </ul>
+          </div>
       </div>
     </div>
   </div>
@@ -101,6 +105,13 @@
     <div class="row">
       <div class="col-sm-12" id="linegraph">
         <h3 class="vis_titles" style="text-align: center"> Linegraph</h3>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12" id="stacked_bar">
+        <h3 class="vis_titles" style="text-align: center"> Stacked bargraph</h3>
       </div>
     </div>
   </div>

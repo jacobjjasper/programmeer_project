@@ -4,7 +4,7 @@
 # Programming project
 #
 # Jacob Jasper (10650385)
-# 
+#
 
 
 
@@ -81,4 +81,22 @@ with open('JSON_data/consumption_cigarets_smokers.json', 'rb+') as json_file:
     json_file.truncate()
 
 with open('JSON_data/consumption_cigarets_smokers.json', 'a') as json_file:
+    json_file.write("]")
+
+# convert number of deaths by smoking into a JSON
+json_file = open('JSON_data/netherlands_smoking.json', 'w')
+json_data = [json.dumps(d) for d in csv.DictReader(open('csv_data/netherlands_smoking(2014-2017).csv', 'r'))]
+
+json_file.write("[")
+for d in json_data:
+    json_file.write(d)
+    json_file.write(',\n')
+
+json_file.close()
+
+with open('JSON_data/netherlands_smoking.json', 'rb+') as json_file:
+    json_file.seek(-2, 2)
+    json_file.truncate()
+
+with open('JSON_data/netherlands_smoking.json', 'a') as json_file:
     json_file.write("]")

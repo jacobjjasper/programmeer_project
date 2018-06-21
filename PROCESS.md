@@ -84,7 +84,7 @@ updaten aan de and van jaren button en daarna kijken hoe ik de data krijg
 aangepast als ik van variabele op de y as wil wisselen.
 
 ## 19 juni
-- update_scatter maken voor jaren.
+- Update_scatter maken voor jaren.
 - Lukt niet echt goed, heb nu voor elkaar gekregen om dropdown menu te laten
 werken samen met nigel, deze deed het eerst niet. Nu dat werkt en de juiste data
 wordt geselecteerd moet ik de datapunten updaten. Dit gebeurt echter nog niet en
@@ -94,3 +94,19 @@ maar vergeten een variabele te hernoemen. Het is echter nu zo dat ik een error
 krijg (Cannot read property 'createSVGPoint' of undefined) waarvan ik niet
 precies weet waar die vandaan komt,het is waarschijnlijk iets met de benamingen
 van mijn svg's en tooltips, want hiervoor deed die het niet.
+
+## 20 juni
+- Update voor mijn scatter lukt nu. Gebruik gemaakt van een extra file, omdat
+dit voor mezelf overzichtelijker is. Om consequent te blijven heb ik dit nu ook
+gedaan voor mijn linegraph update functie. Nu nog een knop bouwen die mijn y-as
+verandert. Uitdaging is hier, hoe ik bijhoudt welke variabele er staat en dat
+mijn update functie anders werkt dus afhankelijk van de variabele. Dit doe ik
+later.
+- Repository aangepast met verschillende overzichtelijke mappen.
+- Data voor mijn stacked barchart geconvert naar JSON, dit was exact hetzelfde
+proces als daarvoor maar moest nog gebeuren. Deze data had ik al wel gevonden
+maar nog niet omgezet, omdat ik eerst mijn mvp grotendeels af wilde hebben.
+- Werken aan mijn slider en update map colors.
+
+## 21 juni
+- 

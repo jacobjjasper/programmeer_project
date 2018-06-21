@@ -14,6 +14,13 @@ var tool_tip;
 var svg_scatter;
 var x_scale_scatter;
 var y_scale_scatter;
+var current_variable = 0;
+var max_cancer;
+var current_variable_scatter;
+var y_axis_scatter;
+var h_scatter;
+var min_deaths;
+var max_deaths;
 
 // function makeScatter(valueButton){
 d3v4.json("JSON_data/scatter_data.json", function(data){
@@ -25,7 +32,8 @@ d3v4.json("JSON_data/scatter_data.json", function(data){
 
   //width and height
   var w = 400;
-  var h = 300;
+  h_scatter = 300;
+  h = h_scatter;
   var margin = { top: 50, right: 150, bottom: 50, left: 100};
 
   //create SVG element
@@ -70,7 +78,11 @@ d3v4.json("JSON_data/scatter_data.json", function(data){
     cancer.push(Number(all_data_scatter[value_button][i]["Cancer"]));
 
   };
-  var max_cancer = Math.max(...cancer);
+  max_cancer = Math.max(...cancer);
+  min_deaths = Math.min(...deaths);
+  max_deaths = Math.max(...deaths);
+  console.log(max_deaths);
+
 
   //call tip box
   svg_scatter.call(tool_tip);
@@ -106,18 +118,19 @@ d3v4.json("JSON_data/scatter_data.json", function(data){
       .text("Number of cigarets consumed per smoker");
 
   //creating variable for y axis
-  var y_axis = d3v4.axisLeft()
-                .scale(y_scale_scatter);
+  y_axis_scatter = d3v4.axisLeft()
+                      .scale(y_scale_scatter);
 
 
   //append y axis to canvas and class
   svg_scatter.append("g")
-    .attr("class", "y axis")
-    .call(y_axis);
+    .attr("class", "y_axis")
+    .call(y_axis_scatter);
 
     //append label for y axis
     svg_scatter.append("text")
       .attr("class", "label")
+      .attr("id", "y_label")
       .attr("transform", "rotate(-90)")
       .attr("y", -70)
       .attr("dy", ".71em")
@@ -154,10 +167,6 @@ d3v4.json("JSON_data/scatter_data.json", function(data){
       .on("mouseover", tool_tip.show)
       .on("mouseout", tool_tip.hide)
       .on("click", function(d){
-        d3v4.selectAll(".line_click")
-          .remove();
-        d3v4.selectAll(".dot_click")
-            .remove();
 
         return update_line(d["Entity"]);
       });
@@ -215,33 +224,5 @@ function update_scatter(value_button){
 
         return update_line(d["Entity"]);
       });
-  // //make a circle for each data point
-  // dot =  svg.selectAll("circle")
-  //              .data(all_data[value_button])
-  //              .enter();
-  //
-  // svg.selectAll(".dot")
-  //       .data(all_data[value_button])
-  //       .transition()
-  //       .duration(1000)
-  //       .attr("cx", function(d) {
-  //         return x_scale(d["Cigarets"]);
-  //       })
-  //       .attr("cy", function(d) {
-  //         return y_scale(d["Deaths"])
-  //       })
-  //       .attr("r", 3)
-  //       .style("fill", "red")
-  //       .style("stroke-width", 1)
-  //       .style("stroke", "black")
-  //       .on("mouseover", tool_tip.show)
-  //       .on("mouseout", tool_tip.hide)
-  //       .on("click", function(d){
-  //         d3v4.selectAll(".line_click")
-  //           .remove();
-  //         d3v4.selectAll(".dot_click")
-  //             .remove();
-  //
-  //         return update_line(d["Entity"]);
-  //       });
+  current_variable_scatter = 0;
 };
