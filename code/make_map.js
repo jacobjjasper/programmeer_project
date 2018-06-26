@@ -63,11 +63,16 @@ d3.json("JSON_data/share_smokers_everyday.json", function(data){
       },
       done: function(map) {
        map.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
-           update_line(geography.id);
+         if (click == 0) {
+           make_click_line(geography.id);
+         }
+         else if (click == 1){
+           update_click_line(geography.id)
+         };
        });
-   }
-  });
-});
+   } // done function
+ }); // data map
+}); // file opening
 
 function map_data(year){
 

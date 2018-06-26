@@ -167,8 +167,12 @@ d3v4.json("JSON_data/scatter_data.json", function(data){
       .on("mouseover", tool_tip_scatter.show)
       .on("mouseout", tool_tip_scatter.hide)
       .on("click", function(d){
-
-        return update_line(d["Entity"]);
+        if (click == 0) {
+          make_click_line(d["Entity"]);
+        }
+        else if (click == 1){
+          update_click_line(d["Entity"])
+        };
       });
 
     //append title to scatterplot

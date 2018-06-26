@@ -15,7 +15,7 @@ var x_scale;
 var y_scale;
 var tool_tip_line;
 var line_function;
-var svg;
+var svg_line;
 
   // function makeScatter(valueButton){
   d3v4.json("JSON_data/share_smokers_everyday.json", function(data){
@@ -33,14 +33,14 @@ var svg;
   };
 
     //width and height
-    var w = 1100;
+    var w = 1050;
     var h = 260;
-    var margin = { top: 20, right: 100, bottom: 40, left: 150};
+    var margin = { top: 20, right: 50, bottom: 40, left: 50};
 
 
-    svg = d3v4.select("body")
+    svg_line = d3v4.select("#linegraph")
               .append("svg")
-              .attr("class", "svg")
+              .attr("class", "svg_line")
               .attr("id", "line_svg")
               .attr("width", w + margin.left + margin.right)
               .attr("height", h + margin.top + margin.bottom)
@@ -63,7 +63,7 @@ var svg;
 
 
                 //call tip box
-                svg.call(tool_tip_line);
+                svg_line.call(tool_tip_line);
 
     years = [];
     // var parseTime = d3v4.timeParse("%Y");
@@ -91,13 +91,13 @@ var svg;
     x_axis.tickValues(d3v4.range(Math.min(...years), Math.max(...years)+1, 1));
 
     //append x axis to canvas and class
-    svg.append("g")
+    svg_line.append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + (h) + ")")
       .call(x_axis);
 
       //append label for x axis
-      svg.append("text")
+      svg_line.append("text")
         .attr("class", "label")
         .attr("transform", "translate(0," + (h) + ")")
         .attr("x", w)
@@ -111,12 +111,12 @@ var svg;
 
 
     //append y axis to canvas and class
-    svg.append("g")
+    svg_line.append("g")
       .attr("class", "y axis")
       .call(y_axis);
 
     //append label for y axis
-    svg.append("text")
+    svg_line.append("text")
       .attr("class", "label")
       .attr("transform", "rotate(-90)")
       .attr("y", -50)
@@ -133,7 +133,7 @@ var svg;
                           });
 
     // Add the valueline path.
-    svg.append("path")
+    svg_line.append("path")
         .attr("class", "line")
         .attr("d", line_function(dutch_data))
         .attr("stroke", "green")
@@ -141,13 +141,13 @@ var svg;
         .attr("fill", "white");
 
     //make a circle for each data point
-    var dot =  svg.selectAll("circle")
+    var dot =  svg_line.selectAll("circle")
                .data(dutch_data)
                .enter();
 
     //make scatterplot datapoints
      dot.append("circle")
-     .attr("class", "dot")
+     .attr("class", "dot_line")
 
      //specifying the circle attributes of cx, cy, r
      .attr("cx", function(d) {

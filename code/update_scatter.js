@@ -21,17 +21,17 @@ function update_scatter(value_button){
             else if (current_variable == 1) {
               return y_scale_scatter(d["Cancer"])
             }
-        })
-        .attr("r", 3)
-        .style("fill", "red")
-        .style("stroke-width", 1)
-        .style("stroke", "black")
+        });
 
         dots
         .on("mouseover", tool_tip_scatter.show)
         .on("mouseout", tool_tip_scatter.hide)
         .on("click", function(d){
-
-          return update_line(d["Entity"]);
+          if (click == 0) {
+            make_click_line(d["Entity"]);
+          }
+          else if (click == 1){
+            update_click_line(d["Entity"])
+          };
         });
 };

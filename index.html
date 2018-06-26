@@ -24,15 +24,15 @@
   <script src="libraries/d3.js"></script>
   <script src="libraries/topojson.js"></script>
   <script src="libraries/worldmap.js"></script>
-  <script src="code/map.js"></script>
+  <script src="code/make_map.js"></script>
   <script src="libraries/d3_version4.js"></script>
   <script src="libraries/d3-tip.js"></script>
   <script src="code/make_scatter.js"></script>
   <script src="code/update_scatter.js"></script>
   <script src="code/update_y_scatter.js"></script>
-  <script src="code/linegraph.js"></script>
+  <script src="code/make_linegraph.js"></script>
   <script src="code/update_line.js"></script>
-  <!-- <script src="code/stacked_bar.js"></script> -->
+  <script src="code/make_bargraph.js"></script>
   <link rel="stylesheet" type="text/css" href="style/scatter.css">
   <meta charset="utf-8">
 </head>
@@ -95,8 +95,10 @@
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu">
-            <li><a id="deaths_button" onclick="update_y_scatter(0);">Number of deaths of tobacco smoking</a></li>
-            <li><a id="cancer_button" onclick="update_y_scatter(1);">Share of cancer deaths attributed to tobacco</a></li>
+            <li><a id="deaths_button" onclick="update_y_scatter(0);">Number
+              of deaths of tobacco smoking</a></li>
+            <li><a id="cancer_button" onclick="update_y_scatter(1);">Share of
+              cancer deaths attributed <br>to tobacco</a></li>
           </ul>
           </div>
       </div>
@@ -111,7 +113,7 @@
   </div>
   <div class="container">
     <div class="row">
-      <div class="col-sm-12" id="stacked_bar">
+      <div class="col-sm-12" id="bar">
         <h3 class="vis_titles" style="text-align: center"> Stacked bargraph</h3>
       </div>
     </div>

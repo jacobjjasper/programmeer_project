@@ -129,4 +129,9 @@ y_axis_scatter.
 - Verder werken aan mijn bargraph en mijn tool_tip beter werkend krijgen.
 - Fout tool_tip lag aan het definieren van een algemene variabele die
 hetzelfde heet in andere documenten, al eerder gehad nu werkt die.
--
+- Heb snel een transition geschreven voor mijn lijn, omdat ik deze toch heel
+graag wilde laten werken. Die doet het nu. Mijn mvp is nu af en nu kan ik dan
+mijn bargraph maken. Hoop deze vandaag af te hebben zodat ik morgen mijn Project
+kan afronden en kan zitten aan verslag.
+- Bargraph gemaakt, nu nog de jaren erbij op de x as en design ervan misschien
+nog even aanpassen.

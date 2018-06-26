@@ -31,6 +31,18 @@
   border-radius: 8px;
   pointer-events: none;
 }
+.bar-tip {
+  position: sticky;
+  text-align: left;
+  width: 220px;
+  height: 35px;
+  padding: 5px;
+  font: 10px sans-serif;
+  background: lightsteelblue;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;
+}
 
 .btn {
   background-color: blue;
