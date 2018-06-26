@@ -120,10 +120,13 @@ wisselen.
 - Achter gekomen dat mijn tool_tip niet goed werkt bij het veranderen van de
 y_axis_scatter.
 
-## 23 juni
+## 25 juni
 - Gewerkt aan het verbeteren van mijn tool_tip.
 - Begin gemaakt van mijn bargraph morgen aan verder.
 
-## 24 juni
+## 26 juni
 - Achter gekomen dat ik ben vergeten te pushen afgelopen dagen, heel dom.
 - Verder werken aan mijn bargraph en mijn tool_tip beter werkend krijgen.
+- Fout tool_tip lag aan het definieren van een algemene variabele die
+hetzelfde heet in andere documenten, al eerder gehad nu werkt die.
+-
