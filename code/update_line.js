@@ -40,6 +40,6 @@ function update_line(input){
     .attr("r", 3)
     //defining the style of each datapoint
     .style("fill", "black")
-    .on("mouseover", tool_tip.show)
-    .on("mouseout", tool_tip.hide)
+    .on("mouseover", tool_tip_line.show)
+    .on("mouseout", tool_tip_line.hide)
 };

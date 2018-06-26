@@ -10,7 +10,7 @@
 
 var all_data_scatter = [];
 // var dot;
-var tool_tip;
+var tool_tip_scatter;
 var svg_scatter;
 var x_scale_scatter;
 var y_scale_scatter;
@@ -47,7 +47,7 @@ d3v4.json("JSON_data/scatter_data.json", function(data){
             ")");
 
   // creating tip box to show data
-  tool_tip = d3v4.tip()
+  tool_tip_scatter = d3v4.tip()
               .attr('class', 'd3v4-tip')
               .offset([-20, 0])
               .html(function(d) {
@@ -85,7 +85,7 @@ d3v4.json("JSON_data/scatter_data.json", function(data){
 
 
   //call tip box
-  svg_scatter.call(tool_tip);
+  svg_scatter.call(tool_tip_scatter);
 
   //creating scale for 2015
   x_scale_scatter = d3v4.scaleLinear()
@@ -164,8 +164,8 @@ d3v4.json("JSON_data/scatter_data.json", function(data){
       .style("fill", "red")
       .style("stroke-width", 1)
       .style("stroke", "black")
-      .on("mouseover", tool_tip.show)
-      .on("mouseout", tool_tip.hide)
+      .on("mouseover", tool_tip_scatter.show)
+      .on("mouseout", tool_tip_scatter.hide)
       .on("click", function(d){
 
         return update_line(d["Entity"]);
@@ -214,8 +214,8 @@ function update_scatter(value_button){
       .style("fill", "red")
       .style("stroke-width", 1)
       .style("stroke", "black")
-      .on("mouseover", tool_tip.show)
-      .on("mouseout", tool_tip.hide)
+      .on("mouseover", tool_tip_scatter.show)
+      .on("mouseout", tool_tip_scatter.hide)
       .on("click", function(d){
         d3v4.selectAll(".line_click")
           .remove();
@@ -226,3 +226,13 @@ function update_scatter(value_button){
       });
   current_variable_scatter = 0;
 };
+var j = 0;
+d3v4.json("JSON_data/netherlands_smoking.json", function(data){
+  for (let i = 0; i < data.length; i++) {
+    if (data[i]["Year"] == 2014) {
+      console.log(Number(data[i]["Share"]));
+      j = j+ Number(data[i]["Share"]);
+    }
+  }
+  console.log(j);
+});

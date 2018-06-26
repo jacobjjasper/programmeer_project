@@ -28,13 +28,9 @@ function update_scatter(value_button){
         .style("stroke", "black")
 
         dots
-        .on("mouseover", tool_tip.show)
-        .on("mouseout", tool_tip.hide)
+        .on("mouseover", tool_tip_scatter.show)
+        .on("mouseout", tool_tip_scatter.hide)
         .on("click", function(d){
-          d3v4.selectAll(".line_click")
-            .remove();
-          d3v4.selectAll(".dot_click")
-              .remove();
 
           return update_line(d["Entity"]);
         });

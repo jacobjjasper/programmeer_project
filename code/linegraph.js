@@ -13,7 +13,7 @@
 var all_data = [];
 var x_scale;
 var y_scale;
-var tool_tip;
+var tool_tip_line;
 var line_function;
 var svg;
 
@@ -49,7 +49,7 @@ var svg;
               "translate(" + margin.left + "," + margin.top + ")");
 
     // creating tip box to show data
-    tool_tip = d3v4.tip()
+    tool_tip_line = d3v4.tip()
                   .attr('class', 'line-tip')
                   .offset([-20, 0])
 
@@ -63,7 +63,7 @@ var svg;
 
 
                 //call tip box
-                svg.call(tool_tip);
+                svg.call(tool_tip_line);
 
     years = [];
     // var parseTime = d3v4.timeParse("%Y");
@@ -159,7 +159,7 @@ var svg;
       .attr("r", 3)
       //defining the style of each datapoint
       .style("fill", "black")
-      .on("mouseover", tool_tip.show)
-      .on("mouseout", tool_tip.hide)
+      .on("mouseover", tool_tip_line.show)
+      .on("mouseout", tool_tip_line.hide)
 
     });

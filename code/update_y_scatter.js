@@ -46,7 +46,8 @@ function update_y_scatter(variable){
                 .duration(1500)
                 .attr("cy", function(d) {
                   return y_scale_scatter(d["Cancer"])
-                })
+                });
+
 
       current_variable = 1;
   };

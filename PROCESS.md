@@ -109,4 +109,21 @@ maar nog niet omgezet, omdat ik eerst mijn mvp grotendeels af wilde hebben.
 - Werken aan mijn slider en update map colors.
 
 ## 21 juni
-- 
+- Map met slider afgemaakt en werkend gekregen.
+- Update voor mijn Y-as begonnen.
+- Achter gekomen dat mijn data voor mijn stacked_bar toch niet helemaal goed is,
+besloten om een normale bargraph te doen.
+- Update functie voor mijn y_axis_scatter gemaakt, om zo van variabele te
+wisselen.
+
+## 22 juni
+- Achter gekomen dat mijn tool_tip niet goed werkt bij het veranderen van de
+y_axis_scatter.
+
+## 23 juni
+- Gewerkt aan het verbeteren van mijn tool_tip.
+- Begin gemaakt van mijn bargraph morgen aan verder.
+
+## 24 juni
+- Achter gekomen dat ik ben vergeten te pushen afgelopen dagen, heel dom.
+- Verder werken aan mijn bargraph en mijn tool_tip beter werkend krijgen.
