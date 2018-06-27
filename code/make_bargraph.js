@@ -2,7 +2,7 @@
 d3v4.json("JSON_data/netherlands_smoking.json", function(data){
 
   //width and height
-  var w = 1050;
+  var w = 600;
   var h = 600;
   var margin = { top: 20, right: 50, bottom: 40, left: 100};
   var bars = data.length;
@@ -26,7 +26,7 @@ d3v4.json("JSON_data/netherlands_smoking.json", function(data){
 
                 .html(function(d) {
                   console.log(d);
-                  return  "<strong>" + "Share of people who smoke in The \
+                  return  "<strong>" + "Share of people who smoke every day in The \
                   Netherlands: " + d["Share"] + "%" + "</strong>"});
 
 
@@ -35,11 +35,16 @@ d3v4.json("JSON_data/netherlands_smoking.json", function(data){
 
     var min_bar = 0;
     var max_bar = 20;
+    var years_bar = [];
+
+    for (let i = 0; i < data.length; i++) {
+      years_bar.push(data[i]["Year"]);
+    };
 
       //creating scale for 2015
       x_scale = d3v4.scaleBand()
-                    .rangeRound([0, w])
-                    .padding(0.1);
+                    .domain(years_bar)
+                    .rangeRound([0, w]);
 
       y_scale = d3v4.scaleLinear()
                     .domain([min_bar, max_bar])
@@ -47,7 +52,8 @@ d3v4.json("JSON_data/netherlands_smoking.json", function(data){
 
       //creating variable for x axis
       var x_axis = d3v4.axisBottom()
-                    .scale(x_scale);
+                    .scale(x_scale)
+                    .tickSizeOuter(0);
 
       //append x axis to canvas and class
       svg_bar.append("g")
@@ -58,7 +64,7 @@ d3v4.json("JSON_data/netherlands_smoking.json", function(data){
         //append label for x axis
         svg_bar.append("text")
           .attr("class", "label")
-          .attr("transform", "translate(0," + (h) + ")")
+          .attr("transform", "translate(0," + (h-10) + ")")
           .attr("x", w)
           .attr("y", 40)
           .style("text-anchor", "end")
@@ -81,13 +87,14 @@ d3v4.json("JSON_data/netherlands_smoking.json", function(data){
         .attr("y", -50)
         .attr("dy", ".71em")
         .style("text-anchor", "end")
-        .text("Share of people who smoke everyday (%)");
+        .text("Share of people who smoke everyday in The Netherlands (%)");
 
 
       svg_bar.selectAll("rect")
         .data(data)
         .enter()
         .append("rect")
+        .attr("class", "rect")
         .attr("y", function(d) {
           return y_scale(d["Share"]);
         })
@@ -99,17 +106,5 @@ d3v4.json("JSON_data/netherlands_smoking.json", function(data){
         return h - y_scale(d["Share"])
       })
       .on("mouseover", tool_tip_bar.show)
-      .on("mouseout", tool_tip_bar.hide)
-      .style("fill", "lightsteelblue")
-      .style("border", "black");
-
-    // svg.selectAll("text").data(data).enter()
-    //   .append("text")
-    //   .text(function(d, i) { return d.id; })
-    //   .attr("y", function(d, i) { return 420; })
-    //   .attr("x", function(d, i) { return x(i) + x.bandwidth()/2; })
-    //   .attr("font-size", 16)
-    // 	.style("text-anchor", "center")
-    //   .attr("font-family", "monospace")
-
+      .on("mouseout", tool_tip_bar.hide);
   });

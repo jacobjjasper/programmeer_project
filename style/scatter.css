@@ -52,13 +52,53 @@
 }
 
 .title {
-  text-align:center;
-  color: red;
-  text-shadow: 0 -1px black;
+  text-align:left;
+  color: steelblue;
+  text-shadow: 0 -1px red;
   font-weight: bold;
   text-decoration: underline;
 }
 
 .bullets {
   font-size: 20px;
+}
+
+.rect {
+    fill: steelblue;
+  }
+
+  .rect:hover {
+    fill: brown;
+  }
+  #legendcontainer{
+    width: 50;
+    height: 400;
+  }
+
+  .axis text {
+				font: 10px sans-serif;
+			}
+
+			.axis line, .axis path {
+				fill: none;
+				stroke: #000;
+				shape-rendering: crispEdges;
+			}
+svg{ padding-left: 50px;
+}
+
+.jumbotron {
+  color: steelblue;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px red;
+  background-image: url("smoking.jpeg"); /*soure: https://www.google.nl/search?\
+  q=cover+photos+smoking&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjQysDCy_TbAhXLa1A\
+  KHYKqCSoQ_AUICigB&biw=1440&bih=799#imgrc=5uRd2eHaxQue7M:
+
+/* Full height */
+height: 100%;
+
+/* Center and scale the image nicely */
+background-position: center center;
+background-repeat: repeat;
+background-size: contain;
 }

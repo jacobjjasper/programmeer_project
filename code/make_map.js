@@ -3,6 +3,9 @@ var years_map = {};
 var dataset = {};
 var palette_scale;
 var map;
+var min_value = 0;
+var max_value;
+
 d3.json("JSON_data/share_smokers_everyday.json", function(data){
 
 
@@ -21,10 +24,9 @@ d3.json("JSON_data/share_smokers_everyday.json", function(data){
   decimal = d3.format(",.1f");
 
   var only_values = data.map(function(obj){ return obj["Share smokers"]; });
-  var min_value = Math.min.apply(null, only_values);
-  var max_value = Math.max.apply(null, only_values);
+  max_value = Math.max.apply(null, only_values);
   palette_scale = d3.scale.linear()
-                              .domain([0,max_value])
+                              .domain([min_value,max_value])
                               .range(["#ffeda0","#f03b20"]);
 
   year_data_map = years_map[1990];
@@ -57,7 +59,7 @@ d3.json("JSON_data/share_smokers_everyday.json", function(data){
             // tooltip content
             return ['<div class="hoverinfo">',
                 '<strong>', geo.properties.name, '</strong>',
-                '<br>Share: <strong>', decimal(data.share), '%</strong>',
+                '<br>Share: ', decimal(data.share), '%',
                 '</div>'].join('');
         }
       },
@@ -91,4 +93,4 @@ function map_data(year){
 
 
 
-}
+};

@@ -34,7 +34,7 @@ d3v4.json("JSON_data/scatter_data.json", function(data){
   var w = 400;
   h_scatter = 300;
   h = h_scatter;
-  var margin = { top: 50, right: 150, bottom: 50, left: 100};
+  var margin = { top: 50, right: 100, bottom: 50, left: 100};
 
   //create SVG element
   svg_scatter = d3v4.select("#scatter")
@@ -52,11 +52,11 @@ d3v4.json("JSON_data/scatter_data.json", function(data){
               .offset([-20, 0])
               .html(function(d) {
                 console.log(d);
-                return  "<strong>Country:</strong> <strong>" + d["Entity"]
+                return  "<strong>" + d["Entity"]
             + "</strong>" + "<br>" + "Daily consumption cigarets per smoker: "
             + decimal(d["Cigarets"]) + "<br>" + "Deaths smoking: " +
-            decimal(d["Deaths"]) + "<br>" + "Share of cancer deaths attributed \
-            to tobacco (%):"  + decimal(d["Cancer"])})
+            Number(d["Deaths"]) + "<br>" + "Share of cancer deaths attributed \
+            to tobacco: "  + decimal(d["Cancer"]) + "%"})
               .style("background-color", "white");
 
   var consumption = [];
@@ -81,7 +81,6 @@ d3v4.json("JSON_data/scatter_data.json", function(data){
   max_cancer = Math.max(...cancer);
   min_deaths = Math.min(...deaths);
   max_deaths = Math.max(...deaths);
-  console.log(max_deaths);
 
 
   //call tip box
@@ -191,7 +190,6 @@ d3v4.json("JSON_data/scatter_data.json", function(data){
 function update_scatter(value_button){
 
   d3v4.selectAll(".dot").remove();
-  console.log('UPDATE SCATTER:', value_button);
 
   //make a circle for each data point
   var dot =  svg_scatter.selectAll("circle")
@@ -234,9 +232,7 @@ var j = 0;
 d3v4.json("JSON_data/netherlands_smoking.json", function(data){
   for (let i = 0; i < data.length; i++) {
     if (data[i]["Year"] == 2014) {
-      console.log(Number(data[i]["Share"]));
       j = j+ Number(data[i]["Share"]);
     }
   }
-  console.log(j);
 });

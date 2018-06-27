@@ -35,7 +35,7 @@ var svg_line;
     //width and height
     var w = 1050;
     var h = 260;
-    var margin = { top: 20, right: 50, bottom: 40, left: 50};
+    var margin = { top: 20, right: 100, bottom: 40, left: 50};
 
 
     svg_line = d3v4.select("#linegraph")
@@ -136,7 +136,7 @@ var svg_line;
     svg_line.append("path")
         .attr("class", "line")
         .attr("d", line_function(dutch_data))
-        .attr("stroke", "green")
+        .attr("stroke", "steelblue")
         .attr("stroke-width", 2)
         .attr("fill", "white");
 

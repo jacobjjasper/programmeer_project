@@ -135,3 +135,9 @@ mijn bargraph maken. Hoop deze vandaag af te hebben zodat ik morgen mijn Project
 kan afronden en kan zitten aan verslag.
 - Bargraph gemaakt, nu nog de jaren erbij op de x as en design ervan misschien
 nog even aanpassen.
+
+## 27 juni
+- heb mijn legenda gemaakt voor mijn map, heb mijn slider aangepast zodat die
+aanpast als je slide.
+- heb mijn bargraph afgemaakt, zodat die labels heeft op de x-as.
+- Tekst toegevoegd aan mijn website en opmaak.
