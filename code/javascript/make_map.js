@@ -6,7 +6,7 @@ var map;
 var min_value = 0;
 var max_value;
 
-d3.json("JSON_data/share_smokers_everyday.json", function(data){
+d3.json("data/JSON_data/share_smokers_everyday.json", function(data){
 
 
 

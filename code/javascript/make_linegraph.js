@@ -18,7 +18,7 @@ var line_function;
 var svg_line;
 
   // function makeScatter(valueButton){
-  d3v4.json("JSON_data/share_smokers_everyday.json", function(data){
+  d3v4.json("data/JSON_data/share_smokers_everyday.json", function(data){
 
   decimal = d3.format(",.2f");
   all_data = data;

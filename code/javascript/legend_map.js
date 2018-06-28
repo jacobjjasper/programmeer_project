@@ -6,7 +6,8 @@
  * Jacob Jasper (10650385)
 **/
 
-d3v4.json("JSON_data/share_smokers_everyday.json", function(data){
+
+d3v4.json("data/JSON_data/share_smokers_everyday.json", function(data){
 
   var w = 40, h = 400;
 

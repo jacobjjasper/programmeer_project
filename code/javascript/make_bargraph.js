@@ -1,5 +1,5 @@
 // function makeScatter(valueButton){
-d3v4.json("JSON_data/netherlands_smoking.json", function(data){
+d3v4.json("data/JSON_data/netherlands_smoking.json", function(data){
 
   //width and height
   var w = 600;

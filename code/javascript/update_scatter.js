@@ -1,8 +1,5 @@
 function update_scatter(value_button){
 
-  // d3v4.selectAll(".dot_scatter").remove();
-  console.log('DATASET YEAR:', value_button);
-
   var dots = svg_scatter.selectAll(".dot_scatter")
         .data(all_data_scatter[value_button]);
 

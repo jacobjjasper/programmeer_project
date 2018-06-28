@@ -20,7 +20,7 @@ data2006 = []
 data2010 = []
 
 # iterate over consumption csv and put objects in the right lists
-with open('JSON_data/consumption_cigarets_smokers.json', 'r') as consumption:
+with open('data/JSON_data/consumption_cigarets_smokers.json', 'r') as consumption:
     my_dict = json.load(consumption)
 
     for line in my_dict:
@@ -58,7 +58,7 @@ data_years.append(data2006)
 data_years.append(data2010)
 
 scatter_data = []
-with open('JSON_data/deaths_smoking.json', 'r') as deaths:
+with open('data/JSON_data/deaths_smoking.json', 'r') as deaths:
     with open('JSON_data/share_cancer_deaths_tobacco.json', 'r') as cancer:
         my_dict1 = json.load(deaths)
         my_dict2 = json.load(cancer)
@@ -75,7 +75,7 @@ with open('JSON_data/deaths_smoking.json', 'r') as deaths:
                             print(scatter_data)
                             scatter_data.append(line)
 
-json_file = open('JSON_data/scatter_data.json', 'w')
+json_file = open('data/JSON_data/scatter_data.json', 'w')
 json_data = json.dumps(scatter_data)
 json_file.write(json_data)
 json_file.close()

@@ -1,6 +1,6 @@
 function update_y_scatter(variable){
   if (variable == 0){
-    console.log(max_deaths);
+
     y_scale_scatter = d3v4.scaleLog()
                   .domain([min_deaths, max_deaths])
                   .range([h_scatter, 0]);
@@ -39,7 +39,7 @@ function update_y_scatter(variable){
 
       svg_scatter.select("#y_label")
                   .transition()
-                  .text("Share of cancer death attributed to tobacco (%)")
+                  .text("Share of cancer deaths attributed to tobacco (%)")
 
       svg_scatter.selectAll(".dot_scatter")
                 .transition()
@@ -51,5 +51,4 @@ function update_y_scatter(variable){
 
       current_variable = 1;
   };
-  console.log(current_variable);
 };

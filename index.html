@@ -24,16 +24,16 @@
   <script src="libraries/d3.js"></script>
   <script src="libraries/topojson.js"></script>
   <script src="libraries/worldmap.js"></script>
-  <script src="code/make_map.js"></script>
+  <script src="code/javascript/make_map.js"></script>
   <script src="libraries/d3_version4.js"></script>
-  <script src = "code/legend_map.js"></script>
+  <script src = "code/javascript/legend_map.js"></script>
   <script src="libraries/d3-tip.js"></script>
-  <script src="code/make_scatter.js"></script>
-  <script src="code/update_scatter.js"></script>
-  <script src="code/update_y_scatter.js"></script>
-  <script src="code/make_linegraph.js"></script>
-  <script src="code/update_line.js"></script>
-  <script src="code/make_bargraph.js"></script>
+  <script src="code/javascript/make_scatter.js"></script>
+  <script src="code/javascript/update_scatter.js"></script>
+  <script src="code/javascript/update_y_scatter.js"></script>
+  <script src="code/javascript/make_linegraph.js"></script>
+  <script src="code/javascript/update_line.js"></script>
+  <script src="code/javascript/make_bargraph.js"></script>
   <link rel="stylesheet" type="text/css" href="style/scatter.css">
   <meta charset="utf-8">
 </head>
@@ -165,29 +165,65 @@
       </li>
     </ul>
   </p>
+  <p>
+    Even with all this information about smoking and health problems people keep
+    smoking. Why is that the case? Is quitting really so difficult for people?
+    Is the habit so strong that people are willing to die for it?
+  </p>
+  <p>
+    Habits are formed over the years and how longer you do them, how harder it
+    is to quit with them. So this website is designed to give people between the
+    age of 14 and 30 living in The Netherlands an interactive insight in some
+    statistics about smoking.
+  </p>
 </div>
   <div class="container" id="mvp">
     <br>
     <br>
     <h1 class="title"> Visualizations mvp</h1>
     <div class="row">
-      <div class="col-sm-7" id="map_container">
+      <h2> Description visualisations</h2>
+      <p>
+        The visualizations below show a world map, scatter plot and a line
+        chart. In the summary below each visualisation will be described and the
+        interface will be explained.
+        <ul>
+        <div class="col-sm-4" id="description">
+
+          <li> <p> <strong> Worldmap: </strong> The worldmap shows data about the
+            share of people who smoke everyday from 1990 till 2010. With the
+            slider underneath the map you can choose the year which will be
+            showed in the map by colors. The color gradient is based on
+            the  minimum and the maximum of the dataset. The color scale for the
+            values of the colors is displayed next to the map.</p>
+            <p> The worldmap is also linked to the line graph. The user can
+              click on a country, which data then will be displayed in the
+              linegraph in comparison with The Netherlands.</p>
+        </div>
+        <div class="col-sm-4" id="description">
+          </li><p><strong> Scatterplot: </strong>
+        </div>
+      </p>
+    </div>
+  </div>
+  <div class="container" id="mvp">
+    <div class="row">
+      <div class="col-sm-6" id="map_container">
         <h3 class="bullets">World map</h3>
         <div class="col-sm-1" id="legend">
         <div id="legendcontainer" style="width: 50; height: 400"></div>
       </div>
         <div class="col-sm-11" id="map">
-        <div id="containermap" style="position: left; width: 550px; height: 400px;">
-        </div>
+        <div id="containermap" style="position: ; width: 500px; height: 300px;"></div>
       </div>
         <br>
         <div class="slidecontainer">
           <input type="range" min="1990" max="2010" step="1" value="1990"
-          onmousemove="map_data(this.value)" class="slider" id="slider_value"></div>
+          onmousemove="map_data(this.value)" class="slider" id="slider_value"></input>></div>
           <br>
           <strong>Year: <span id="slider_status">1990</span></strong>
       </div>
-      <div class="col-sm-5" id="scatter">
+      <div class="col-sm-6" id="scatter">
         <h3 class="bullets" style="text-align: left">Scatterplot</h3>
           <div class="dropdown" style="float: right;">
             <button class="btn btn-primary dropdown-toggle btn lg"

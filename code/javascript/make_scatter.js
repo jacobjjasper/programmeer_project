@@ -23,7 +23,7 @@ var min_deaths;
 var max_deaths;
 
 // function makeScatter(valueButton){
-d3v4.json("JSON_data/scatter_data.json", function(data){
+d3v4.json("data/JSON_data/scatter_data.json", function(data){
 
   decimal = d3.format(",.1f");
   value_button = 0;
@@ -228,11 +228,11 @@ function update_scatter(value_button){
       });
   current_variable_scatter = 0;
 };
-var j = 0;
-d3v4.json("JSON_data/netherlands_smoking.json", function(data){
-  for (let i = 0; i < data.length; i++) {
-    if (data[i]["Year"] == 2014) {
-      j = j+ Number(data[i]["Share"]);
-    }
-  }
-});
+// var j = 0;
+// d3v4.json("JSON_data/netherlands_smoking.json", function(data){
+//   for (let i = 0; i < data.length; i++) {
+//     if (data[i]["Year"] == 2014) {
+//       j = j+ Number(data[i]["Share"]);
+//     }
+//   }
+// });
