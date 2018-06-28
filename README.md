@@ -1,5 +1,5 @@
-[programming project](https://jacobjjasper.github.io/programmeer_project/index.html)
-[Tutorial](https://youtu.be/lo_mQOMuI8U)
+- [programming project](https://jacobjjasper.github.io/programmeer_project/index.html)
+- [Tutorial](https://youtu.be/lo_mQOMuI8U)
 
 ##Project information
 - Name project: FACT: Smoking kills
