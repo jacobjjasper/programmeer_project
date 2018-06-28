@@ -215,7 +215,7 @@ function update_scatter(value_button){
       //defining the style of each datapoint
       .style("fill", "red")
       .style("stroke-width", 1)
-      .style("stroke", "black")
+      .style("stroke", "steelblue")
       .on("mouseover", tool_tip_scatter.show)
       .on("mouseout", tool_tip_scatter.hide)
       .on("click", function(d){

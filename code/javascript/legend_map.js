@@ -38,7 +38,7 @@ d3v4.json("data/JSON_data/share_smokers_everyday.json", function(data){
         .attr("width", w - 20)
         .attr("height", h - 100)
         .style("fill", "url(#gradient)")
-        .attr("transform", "translate(-25,61)");
+        .attr("transform", "translate(25,61)");
 
     var y = d3v4.scaleLinear()
                 .range([350, 50])
@@ -48,7 +48,7 @@ d3v4.json("data/JSON_data/share_smokers_everyday.json", function(data){
                     .scale(y);
     key.append("g")
         .attr("class", "y axis")
-        .attr("transform", "translate(-25,10)")
+        .attr("transform", "translate(25,10)")
         .call(y_axis).append("text")
         .attr("transform", "rotate(-90)")
         .attr("y", 30).attr("dy", ".71em")

@@ -54,9 +54,7 @@
 .title {
   text-align:left;
   color: steelblue;
-  text-shadow: 0 -1px red;
   font-weight: bold;
-  text-decoration: underline;
 }
 
 .bullets {
@@ -84,8 +82,8 @@
 				stroke: #000;
 				shape-rendering: crispEdges;
 			}
-svg{ padding-left: 50px;
-}
+/* svg{ padding-left: 50px;
+} */
 
 .jumbotron {
   color: steelblue;
@@ -101,4 +99,12 @@ height: 100%;
 background-position: center center;
 background-repeat: repeat;
 background-size: contain;
+}
+
+.container {
+border: 5px solid #B22222;
+border-radius: 10px;
+margin-top: 10px;
+margin-bottom: 10px;
+padding-left: 25px;
 }

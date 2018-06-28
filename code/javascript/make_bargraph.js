@@ -2,7 +2,7 @@
 d3v4.json("data/JSON_data/netherlands_smoking.json", function(data){
 
   //width and height
-  var w = 600;
+  var w = 550;
   var h = 600;
   var margin = { top: 20, right: 50, bottom: 40, left: 100};
   var bars = data.length;

@@ -141,3 +141,11 @@ nog even aanpassen.
 aanpast als je slide.
 - heb mijn bargraph afgemaakt, zodat die labels heeft op de x-as.
 - Tekst toegevoegd aan mijn website en opmaak.
+
+## 28 juni
+- Achter gekomen dat mijn kaart niet helemaal displayed werd, dit kwam doordat
+ik een padding had gemaakt voor de svg voor de color gradient. Dit opgelost met
+de hulp van Nigel. Website is zo goed als af nog alleen klein stukje tekst
+aanpassen.
+- Heb borders gemaakt per hoofdstukje op mijn site.
+- consistent dezelfde kleuren gebruikt (steelblue en red).

@@ -40,6 +40,7 @@ d3.json("data/JSON_data/share_smokers_everyday.json", function(data){
 
   map = new Datamap({
     element: document.getElementById('containermap'),
+    projection:'mercator',
     // countries don't listed in dataset will be painted with this color
     fills: { defaultFill: '#F5F5F5' },
     data: dataset,
