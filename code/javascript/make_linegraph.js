@@ -1,6 +1,6 @@
 /**
  * This script loads a local .json file of the share of people who smoke
- * everyday
+ * everyday in the Netherlands and makes a linegraph
  *
  * Programming project
  *
@@ -9,7 +9,7 @@
 
 
 
-
+// make general variables for use in update_line file
 var all_data = [];
 var x_scale;
 var y_scale;
@@ -17,14 +17,22 @@ var tool_tip_line;
 var line_function;
 var svg_line;
 
-  // function makeScatter(valueButton){
-  d3v4.json("data/JSON_data/share_smokers_everyday.json", function(data){
+// louading data
+d3v4.json("data/JSON_data/share_smokers_everyday.json", function(data){
 
+  // make variable for decimal place
   decimal = d3.format(",.2f");
+
+  //assign data to general variable
   all_data = data;
+
+  // make empty array for Netherlands
   var dutch_data = [];
+
+  // make empty array for shares
   var share = [];
 
+  // iterate to fill arrays with right data
   for (let i =0; i < all_data.length; i ++) {
     if (data[i]["Entity"] == "Netherlands"){
       dutch_data.push(data[i]);
@@ -37,7 +45,7 @@ var svg_line;
     var h = 260;
     var margin = { top: 20, right: 100, bottom: 40, left: 50};
 
-
+    // make and append svg to right class
     svg_line = d3v4.select("#linegraph")
               .append("svg")
               .attr("class", "svg_line")
@@ -65,15 +73,15 @@ var svg_line;
                 //call tip box
                 svg_line.call(tool_tip_line);
 
+    // make ampty array for the years and iterate to append data
     years = [];
-    // var parseTime = d3v4.timeParse("%Y");
 
     for (let i =0; i < dutch_data.length; i ++) {
       years.push(dutch_data[i]["Year"]);
 
     };
 
-    //creating scale for 2015
+    //creating x and y scale
     x_scale = d3v4.scaleLinear()
                   .domain([Math.min(...years), Math.max(...years)])
                   .range([0, w]);
@@ -87,7 +95,7 @@ var svg_line;
                   .scale(x_scale)
                   .tickFormat(d3v4.format(1));
 
-
+    // make sure the x axis has the right labels and ticks
     x_axis.tickValues(d3v4.range(Math.min(...years), Math.max(...years)+1, 1));
 
     //append x axis to canvas and class
@@ -124,6 +132,7 @@ var svg_line;
       .style("text-anchor", "end")
       .text("Share of people who smoke everyday (%)");
 
+    // make function for creating path for line
     line_function = d3v4.line()
                         .x(function(d) {
                             return x_scale(d["Year"]);

@@ -1,4 +1,5 @@
-#  This script processes data to use later on for a scatterplot.
+#
+# This script processes data to use later on for a scatterplot.
 #
 #  Programming project
 #
@@ -58,6 +59,8 @@ data_years.append(data2006)
 data_years.append(data2010)
 
 scatter_data = []
+
+# check for countries agree with eachother
 with open('data/JSON_data/deaths_smoking.json', 'r') as deaths:
     with open('JSON_data/share_cancer_deaths_tobacco.json', 'r') as cancer:
         my_dict1 = json.load(deaths)
@@ -75,6 +78,7 @@ with open('data/JSON_data/deaths_smoking.json', 'r') as deaths:
                             print(scatter_data)
                             scatter_data.append(line)
 
+# wrights data into json file
 json_file = open('data/JSON_data/scatter_data.json', 'w')
 json_data = json.dumps(scatter_data)
 json_file.write(json_data)

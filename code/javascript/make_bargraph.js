@@ -1,4 +1,16 @@
-// function makeScatter(valueButton){
+/**
+ * This script loads a local .json files of share of people who smoke everyday
+ * in the Netherlands and makes a bargraph
+ *
+ *source datamap: http://datamaps.github.io/
+ *
+ * Programming project
+ *
+ * Jacob Jasper (10650385)
+**/
+
+
+// loading data
 d3v4.json("data/JSON_data/netherlands_smoking.json", function(data){
 
   //width and height
@@ -9,6 +21,7 @@ d3v4.json("data/JSON_data/netherlands_smoking.json", function(data){
   var bar_padding = 2;
   var bar_w = ((w - bar_padding * bars) / bars);
 
+  // create variable svg_bar and append svg to right class
   svg_bar = d3v4.select("#bar")
             .append("svg")
             .attr("class", "svg_bar")
@@ -33,15 +46,17 @@ d3v4.json("data/JSON_data/netherlands_smoking.json", function(data){
     //call tip box
     svg_bar.call(tool_tip_bar);
 
+    // make variables for min, max and array of years for labels x axis
     var min_bar = 0;
     var max_bar = 20;
     var years_bar = [];
 
+    // fill array with labels x axis (years)
     for (let i = 0; i < data.length; i++) {
       years_bar.push(data[i]["Year"]);
     };
 
-      //creating scale for 2015
+      //creating x and y scale
       x_scale = d3v4.scaleBand()
                     .domain(years_bar)
                     .rangeRound([0, w]);
@@ -89,7 +104,7 @@ d3v4.json("data/JSON_data/netherlands_smoking.json", function(data){
         .style("text-anchor", "end")
         .text("Share of people who smoke everyday in The Netherlands (%)");
 
-
+      // append bars to svg
       svg_bar.selectAll("rect")
         .data(data)
         .enter()

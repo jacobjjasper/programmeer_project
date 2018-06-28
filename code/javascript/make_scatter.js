@@ -8,6 +8,7 @@
  * Jacob Jasper (10650385)
 **/
 
+// general variables for use in update_scatter and update_y_scatter
 var all_data_scatter = [];
 // var dot;
 var tool_tip_scatter;
@@ -22,11 +23,16 @@ var h_scatter;
 var min_deaths;
 var max_deaths;
 
-// function makeScatter(valueButton){
+// loading data
 d3v4.json("data/JSON_data/scatter_data.json", function(data){
 
+  // variable for decimal
   decimal = d3.format(",.1f");
+
+  // variable for keeping track of clicks
   value_button = 0;
+
+  // assign data to general variable
   all_data_scatter = data;
 
 
@@ -59,11 +65,13 @@ d3v4.json("data/JSON_data/scatter_data.json", function(data){
             to tobacco: "  + decimal(d["Cancer"]) + "%"})
               .style("background-color", "white");
 
+  // make variables for max and min and empty arrays for data
   var consumption = [];
   var deaths = [];
   var cancer = [];
   var min_cancer = 0;
 
+  // iterate data and push to right array
   for (let i =0; i < all_data_scatter.length; i ++) {
     for (let j = 0; j < all_data_scatter[i].length; j ++){
       deaths.push(Number(all_data_scatter[i][j]["Deaths"]));
@@ -72,12 +80,6 @@ d3v4.json("data/JSON_data/scatter_data.json", function(data){
     }
   };
 
-
-  for (let i =0; i < all_data_scatter[value_button].length; i ++) {
-    consumption.push(Number(all_data_scatter[value_button][i]["Cigarets"]));
-    cancer.push(Number(all_data_scatter[value_button][i]["Cancer"]));
-
-  };
   max_cancer = Math.max(...cancer);
   min_deaths = Math.min(...deaths);
   max_deaths = Math.max(...deaths);
@@ -186,53 +188,3 @@ d3v4.json("data/JSON_data/scatter_data.json", function(data){
       .style("text-decoration", "underline")
       .style("font-weight", "bold");
 });
-
-function update_scatter(value_button){
-
-  d3v4.selectAll(".dot").remove();
-
-  //make a circle for each data point
-  var dot =  svg_scatter.selectAll("circle")
-               .data(all_data_scatter[value_button])
-               .enter();
-
-    //make scatterplot datapoints
-     dot.append("circle")
-     .attr("class", "dot_scatter")
-
-
-     //specifying the circle attributes of cx, cy, r
-     .attr("cx", function(d) {
-        return x_scale_scatter(d["Cigarets"]);
-      })
-      .attr("cy", function(d) {
-          return y_scale_scatter(d["Deaths"]);
-      })
-      .attr("r", 3)
-      // function(d){
-      //     return r_scale(d["Cancer"])
-      // })
-      //defining the style of each datapoint
-      .style("fill", "red")
-      .style("stroke-width", 1)
-      .style("stroke", "steelblue")
-      .on("mouseover", tool_tip_scatter.show)
-      .on("mouseout", tool_tip_scatter.hide)
-      .on("click", function(d){
-        d3v4.selectAll(".line_click")
-          .remove();
-        d3v4.selectAll(".dot_click")
-            .remove();
-
-        return update_line(d["Entity"]);
-      });
-  current_variable_scatter = 0;
-};
-// var j = 0;
-// d3v4.json("JSON_data/netherlands_smoking.json", function(data){
-//   for (let i = 0; i < data.length; i++) {
-//     if (data[i]["Year"] == 2014) {
-//       j = j+ Number(data[i]["Share"]);
-//     }
-//   }
-// });
