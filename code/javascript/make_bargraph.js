@@ -2,7 +2,6 @@
  * This script loads a local .json files of share of people who smoke everyday
  * in the Netherlands and makes a bargraph
  *
- *source datamap: http://datamaps.github.io/
  *
  * Programming project
  *
